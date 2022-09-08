@@ -6,6 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@preact/signals": "1.0.3",
     "next": "latest",
     "next-plugin-preact": "latest",
     "preact": "^10.10.6",

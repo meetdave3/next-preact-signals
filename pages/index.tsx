@@ -1,4 +1,10 @@
 import Link from 'next/link'
+import { Count } from '../components/count'
+import { IncrementButton } from '../components/increment'
+import { DecrementButton } from '../components/decrement'
+import { countState } from '../lib/counter-state'
+
+const state = countState()
 
 export default function IndexPage() {
   return (
@@ -11,7 +17,7 @@ export default function IndexPage() {
           </Link>
         </li>
         <li>
-          <Link href="/ssr">
+          <Link href="/ssr" prefetch={false}>
             <a>SSR</a>
           </Link>
         </li>
@@ -21,6 +27,10 @@ export default function IndexPage() {
           </Link>
         </li>
       </ul>
+
+      <Count count={state.count} />
+      <IncrementButton fn={state.increment}  />
+      <DecrementButton fn={state.decrement} />
     </div>
   )
 }
